@@ -8,7 +8,6 @@ const MenuSummary = ({ selectedItems }) => {
   const countedDietaries = totalDietaries.reduce(function (acc, curr) {
     return acc[curr] ? ++acc[curr] : (acc[curr] = 1), acc;
   }, {});
-  console.log('countedDietaries', countedDietaries);
   return (
     <div className='menu-summary'>
       <div className='container'>
