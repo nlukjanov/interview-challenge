@@ -20,7 +20,7 @@ export default () => {
 
   return (
     <div className='wrapper'>
-      <MenuSummary />
+      <MenuSummary selectedItems={selectedItems} />
       <MenuBuilder
         foodItems={foodItems}
         selectedItems={selectedItems}
