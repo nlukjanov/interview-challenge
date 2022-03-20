@@ -3,8 +3,13 @@ import MenuItem from './MenuItem';
 import MenuPreview from './MenuPreview';
 import Search from './Search';
 
-const MenuBuilder = ({ foodItems, selectedItems, setSelectedItems }) => {
-  console.log('selectedItems', selectedItems);
+const MenuBuilder = ({
+  foodItems,
+  selectedItems,
+  setSelectedItems,
+  search,
+  setSearch,
+}) => {
   const addItem = (item) => {
     let newSelectedItemsList = [...selectedItems];
     const exists = selectedItems.some((element) => element.id === item.id);
@@ -22,7 +27,7 @@ const MenuBuilder = ({ foodItems, selectedItems, setSelectedItems }) => {
     <div className='container menu-builder'>
       <div className='row'>
         <div className='col-4'>
-          <Search />
+          <Search search={search} setSearch={setSearch} />
           <ul className='item-picker'>
             {Object.values(foodItems)?.map((foodItem) => {
               return (

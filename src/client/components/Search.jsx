@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Search = () => {
+const Search = ({ search, setSearch }) => {
   return (
     <div className='filters'>
-      <input className='form-control' placeholder='Name' />
+      <input
+        className='form-control'
+        placeholder='Name'
+        value={search}
+        onChange={(e) => {
+          setSearch(e.target.value);
+        }}
+      />
     </div>
   );
 };
