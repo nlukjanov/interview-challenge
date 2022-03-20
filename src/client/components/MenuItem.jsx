@@ -1,13 +1,14 @@
 import React from 'react';
 
-const MenuItem = () => {
+const MenuItem = (foodItem) => {
+  console.log('foodItem', foodItem);
   return (
     <li className='item'>
-      <h2>Dummy item</h2>
+      <h2>{foodItem.name}</h2>
       <p>
-        <span className='dietary'>ve</span>
-        <span className='dietary'>v</span>
-        <span className='dietary'>n!</span>
+        {foodItem.dietaries?.map((dietary) => {
+          return <span className='dietary'>{dietary}</span>;
+        })}
       </p>
     </li>
   );
