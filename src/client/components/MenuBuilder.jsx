@@ -6,7 +6,16 @@ import Search from './Search';
 const MenuBuilder = ({ foodItems, selectedItems, setSelectedItems }) => {
   console.log('selectedItems', selectedItems);
   const addItem = (item) => {
-    const newSelectedItemsList = [...selectedItems, item];
+    let newSelectedItemsList = [...selectedItems];
+    const exists = selectedItems.some((element) => element.id === item.id);
+    if (!exists) newSelectedItemsList = [...selectedItems, item];
+    setSelectedItems(newSelectedItemsList);
+  };
+
+  const removeItem = (item) => {
+    const newSelectedItemsList = selectedItems.filter((filterItem) => {
+      return filterItem.id !== item.id;
+    });
     setSelectedItems(newSelectedItemsList);
   };
   return (
@@ -18,7 +27,7 @@ const MenuBuilder = ({ foodItems, selectedItems, setSelectedItems }) => {
             {Object.values(foodItems)?.map((foodItem) => {
               return (
                 <MenuItem
-                  key={foodItem.id}
+                  key={`menu-builder-${foodItem.id}`}
                   foodItem={foodItem}
                   updateItem={addItem}
                 />
@@ -26,7 +35,7 @@ const MenuBuilder = ({ foodItems, selectedItems, setSelectedItems }) => {
             })}
           </ul>
         </div>
-        <MenuPreview selectedItems={selectedItems} />
+        <MenuPreview selectedItems={selectedItems} removeItem={removeItem} />
       </div>
     </div>
   );
