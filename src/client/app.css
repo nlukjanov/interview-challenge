@@ -72,6 +72,7 @@ li.item {
   padding: 10px;
   margin-bottom: 20px;
   position: relative;
+  cursor: pointer;
 }
 
 li.item h2 {

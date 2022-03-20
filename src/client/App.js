@@ -16,10 +16,16 @@ export default () => {
     fetchItems();
   }, []);
 
+  const [selectedItems, setSelectedItems] = useState([]);
+
   return (
     <div className='wrapper'>
       <MenuSummary />
-      <MenuBuilder {...foodItems} />
+      <MenuBuilder
+        foodItems={foodItems}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
     </div>
   );
 };
