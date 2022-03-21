@@ -16,6 +16,7 @@ const MenuBuilder = ({
     if (!exists) newSelectedItemsList = [...selectedItems, item];
     setSelectedItems(newSelectedItemsList);
   };
+  console.log('foodItems', foodItems)
 
   const removeItem = (item) => {
     const newSelectedItemsList = selectedItems.filter((filterItem) => {
@@ -28,7 +29,7 @@ const MenuBuilder = ({
       <div className='row'>
         <div className='col-4'>
           <Search search={search} setSearch={setSearch} />
-          <ul className='item-picker'>
+          <ul data-testid='menu-wrapper' className='item-picker'>
             {Object.values(foodItems)?.map((foodItem) => {
               return (
                 <MenuItem
